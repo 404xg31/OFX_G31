@@ -5,7 +5,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-20.04
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -23,7 +23,7 @@ jobs:
           export PATH=~/bin:$PATH
           mkdir workspace
           cd workspace
-          repo init -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni -b twrp-12.1
+          repo init -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni -b twrp-12
           repo sync -c -j$(nproc) --force-sync --no-clone-bundle --no-tags
 
       - name: Setup Device Tree
@@ -34,5 +34,7 @@ jobs:
         run: |
           cd workspace
           source build/envsetup.sh
+          lunch omni_coful-userdebug
+          mka recoveryimage
           lunch omni_coful-userdebug
           mka recoveryimage
