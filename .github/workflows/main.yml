@@ -38,3 +38,5 @@ jobs:
           mka recoveryimage
           lunch omni_coful-userdebug
           mka recoveryimage
+          lunch omni_coful-userdebug
+          mka recoveryimage
