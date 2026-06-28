@@ -15,6 +15,8 @@ $(call inherit-product, vendor/omni/config/common.mk)
 # Inherit from coful device
 $(call inherit-product, device/motorola/coful/device.mk)
 
+PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,device/motorola/$(PRODUCT_RELEASE_NAME)/recovery/root,recovery/root)
+
 PRODUCT_DEVICE := coful
 PRODUCT_NAME := twrp_coful
 PRODUCT_BRAND := motorola
